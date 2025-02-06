@@ -29,24 +29,25 @@ int main(){
         cin>>weight[i];
         cin>>value[i];
    } 
-   vector<vector<int>>dp(n,vector<int>(w+1,0));  // here we are w+1 beacuse we want till the w,   changing parameter will make sure how 2d or 3d which dp requried
+   vector<vector<int>>dp(n+1,vector<int>(w+1,0));  // here we are w+1 beacuse we want till the w,   changing parameter will make sure how 2d or 3d which dp requried
  //cout<<maxprofit(n-1,weight,value,w,dp); 
 
 
- // this is tabulation technique
+ // this is tabulation technique 
+ // we can avoid this step for ..
   for(int i=0;i<n;i++) dp[i][0]=0;      //initailse the first row en sbko recursive ka base case dekhkr solve karo ache se..
-  for(int j=0;j<=w;j++) dp[0][j]=0; //intialise the first colomn...
+  for(int j=0;j<=w;j++) dp[0][j]=0;      //intialise the first colomn... 
          
-                   for(int i=1;i<n;i++){                // fill the remaing  colomn..
-                  for(int j=1;j<=w;j++){   
+                  for(int i=1;i<=n;i++){                // fill the remaing  colomn..
+                      for(int j=0;j<=w;j++){   
                      // fill the  remaing rows 
-                     if(weight[i]<=j) {      // here we will consider whether to take (i-1) wala index or not ....
-                             dp[i][j]=max(value[i]+dp[i-1][j-weight[i]],dp[i-1][j]); 
+                     if(weight[i-1]<=j) {      // here we will consider whether to take (i-1) wala index or not ....
+                             dp[i][j]=max(value[i-1]+dp[i-1][j-weight[i-1]],dp[i-1][j]); 
                            }  
                   else{
                       dp[i][j]=dp[i-1][j];
                   }                 // take the help of table to compute the remaing boxes of the grid
               }  
          } 
-         cout<<dp[n-1][w];  // last box.....
+         cout<<dp[n][w];  // last box..... 
 }      
