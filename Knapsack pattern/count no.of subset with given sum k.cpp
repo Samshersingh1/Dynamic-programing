@@ -18,3 +18,5 @@ int main(){
  int k=5;
  cout<<fun(0,v,k);
 }
+
+//note if there is 0 in the array we have to multiply pow(n,2(*ans) dry run for this test case arr[3]={0,0,1}
