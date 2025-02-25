@@ -61,7 +61,7 @@ sc:: o(n*n) ..
                  int nottake=dp[i-1][k]; //nottake.... 
                int take=INT_MIN;
                  if(k>=i){
-                     take=price[i]+dp[i][k-(i+1)]; //take..
+                     take=price[i-1]+dp[i][k-(i)]; //take..
                 }   
                    dp[i][k]= max(take,nottake);  
             }
