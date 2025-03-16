@@ -1,1 +1,1 @@
-//here is the problem
+// this is simple problem just make (n-LPS) and got your answer
