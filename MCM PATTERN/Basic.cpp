@@ -33,7 +33,7 @@ using namespace std;
              if(i>=j) return 0;
            int ans=INT_MAX;
            for(int k=i;k<=j-1;k++){
-               int temp=fun(0,k,arr) +fun(k+1,j,arr) +arr[i-1]*arr[k]*arr[j]; 
+               int temp=fun(i,k,arr) +fun(k+1,j,arr) +arr[i-1]*arr[k]*arr[j]; 
                ans=min(ans,temp);
            }  
            return ans; 
