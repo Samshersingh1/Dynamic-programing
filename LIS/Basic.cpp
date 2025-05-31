@@ -80,7 +80,32 @@ vector<int> printingLongestIncreasingSubsequence(vector<int> arr, int n) {
 	   reverse(ans.begin(),ans.end());
 	   return ans;
  
-	}   
+	}    
+
+
+//HERE IS MOST OPTIMSE VERSION OF CODE 
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+           int n=nums.size();
+           vector<int>arr;
+           arr.push_back(nums[0]); 
+           
+           for(int i=0;i<n;i++){
+             if(arr[arr.size()-1] <nums[i]) {
+                 arr.push_back(nums[i]);
+             }    
+              
+              else{
+                  auto it = lower_bound(arr.begin(), arr.end(), nums[i]); 
+               int index = it - arr.begin(); 
+                arr[index]=nums[i];
+              }
+              
+           } 
+           return arr.size();
+    } 
+};        
 
 
     
